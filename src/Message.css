@@ -1,0 +1,30 @@
+.message {
+  flex: 1;
+  position: relative;
+  display: flex;
+  color: rgba(241, 241, 242, 0.95);
+  background-color: #262d31;
+  /* word-wrap: break-word; */
+  width: fit-content;
+  margin: 20px;
+  padding: 5px;
+  padding-right: 40px;
+  border-radius: 5px;
+  max-width: 65%;
+}
+.message_text {
+  margin-right: 10px;
+  word-break: break-all;
+}
+.timestamp {
+  position: relative;
+  right: 2px;
+  align-self: flex-end;
+  font-size: xx-small;
+  flex-shrink: 0;
+}
+
+.sender {
+  background-color: #056162;
+  margin-left: auto;
+}

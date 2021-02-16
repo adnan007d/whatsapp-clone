@@ -1,0 +1,11 @@
+.bodyBackground {
+  width: 100%;
+  flex: 1;
+  display: grid;
+  place-items: center;
+  background-color: #262d31;
+}
+.whatsapp_Logo {
+  height: 50vh;
+  object-fit: contain;
+}

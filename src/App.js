@@ -1,23 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Body from "./Body";
+import db, { auth } from "./firebase";
+import Landing from "./Landing";
+import Sidebar from "./Sidebar";
+import { useStateValue } from "./StateProvider";
+import { actionTypes } from "./reducer";
+import { useEffect } from "react";
 function App() {
+  const [{ user }, dispatch] = useStateValue();
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        async function fetchData() {
+          await db
+            .collection("users")
+            .doc(authUser.uid)
+            .get()
+            .then((doc) => {
+              dispatch({
+                type: actionTypes.SET_USER,
+                user: doc.data(),
+              });
+            });
+
+          await db
+            .collection("users")
+            .where("uid", "!=", authUser.uid)
+            .onSnapshot((snapshot) => {
+              dispatch({
+                type: actionTypes.SET_ALL_USERS,
+                allUser: snapshot.docs.slice(),
+              });
+            });
+        }
+        fetchData();
+      } else {
+        dispatch({
+          type: actionTypes.SET_USER,
+          user: null,
+        });
+      }
+    });
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      {user ? (
+        <>
+          <Sidebar /> <Body />
+        </>
+      ) : (
+        <Landing />
+      )}
     </div>
   );
 }

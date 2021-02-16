@@ -1,0 +1,15 @@
+.sidebarUsers {
+  margin: 10px 0px;
+  /* overflow-y: scroll; */
+  cursor: pointer;
+}
+.sidebarUsersContent {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+}
+
+.sidebarUsersContent > h3 {
+  margin-left: 10px;
+  color: rgba(241, 241, 242, 0.92);
+}

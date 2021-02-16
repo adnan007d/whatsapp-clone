@@ -1,0 +1,78 @@
+.body {
+  flex: 70%;
+  position: relative;
+  width: 100%;
+  min-width: 460px;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  height: 100vh;
+}
+.body_header {
+  display: flex;
+  position: relative;
+  padding: 5px 16px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #2a2f32;
+}
+
+.body_headerName {
+  color: rgba(241, 241, 242, 0.92);
+  flex-grow: 1;
+  font-weight: 700;
+  margin-left: 20px;
+}
+
+.body_headerIcons > .MuiButtonBase-root {
+  color: #b1b3b5 !important;
+}
+
+.body_messages {
+  flex: 1;
+  overflow-y: auto;
+  position: relative;
+  background: url("https://wallpapercave.com/wp/wp7130410.jpg");
+  object-fit: contain;
+  background-size: contain;
+}
+
+.body_input {
+  padding: 10px;
+  display: flex;
+  background-color: #1e2428;
+
+  align-items: center;
+}
+form {
+  flex: 1;
+  display: flex;
+  background-color: #33383b;
+  border-radius: 20px;
+  padding: 8px 20px;
+}
+form > input {
+  flex: 1;
+  border: none;
+  color: white;
+  background-color: transparent;
+  outline: none;
+}
+form > button {
+  display: none;
+}
+.body_input > .MuiButtonBase-root {
+  color: #828689 !important;
+}
+
+.body_headerLogout {
+  border: none !important;
+  width: fit-content !important;
+
+  background-color: #828689 !important;
+  color: white !important;
+}
+.body_headerLogout:hover {
+  background-color: #056162 !important;
+  color: white;
+}
